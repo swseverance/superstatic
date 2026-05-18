@@ -48,6 +48,7 @@ cli
   .option("-p, --port <port>", "Port", PORT)
   .option("--host, --hostname <hostname>", "Hostname", HOSTNAME)
   .option("-c, --config <config>", "Filename of config", CONFIG_FILENAME)
+  .option("--no-merge-config", "Use config file as-is without merging with superstatic.json or firebase.json")
   .option("--debug")
   .option("--gzip")
   .option("--compression")
@@ -57,6 +58,7 @@ cli
       const app = server({
         cwd: path.join(process.cwd(), folder),
         config: options.config,
+        mergeConfig: options.mergeConfig,
         port: options.port,
         hostname: options.hostname,
         compression: options.compression,
